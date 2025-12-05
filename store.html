@@ -11,40 +11,42 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #000;
   color: #fff;
   overflow-x: hidden;
+  background-color: #000;
 }
 
-/* Header */
+/* Header transparent */
 header {
   position: fixed;
   top:0; left:0; width:100%;
   z-index:1000;
   background: transparent;
-  padding: 12px 30px;
+  padding: 8px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 nav {
   display:flex;
-  gap:12px;
+  gap:8px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 nav a {
   color:#fff;
   text-decoration:none;
   font-weight:bold;
-  padding:10px 14px;
+  padding:6px 10px;
   border-radius:6px;
   border:2px solid transparent;
-  font-size:15px;
+  font-size:14px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap:6px;
+  gap:4px;
 }
-nav a .icon { font-size:18px; }
+nav a .icon { font-size:16px; color:#fff; }
 nav a:hover, nav a.active {
   color:#fff;
   border:2px solid #fff;
@@ -52,11 +54,11 @@ nav a:hover, nav a.active {
   transform:scale(1.05);
 }
 
-/* Top Banner */
+/* Top half: hero + background */
 .top-half {
   position: relative;
   width: 100%;
-  height: 65vh; /* slightly taller for bigger logo */
+  height: 60vh;
   overflow: hidden;
 }
 .bg-image {
@@ -73,11 +75,9 @@ nav a:hover, nav a.active {
   top:0; left:0;
   width:100%;
   height:100%;
-  background: rgba(0,0,20,0.55);
+  background: rgba(0,0,0,0.4);
   z-index: -1;
 }
-
-/* Floating logo animation */
 @keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
@@ -87,74 +87,112 @@ nav a:hover, nav a.active {
   text-align:center;
   position: relative;
   z-index:1;
-  top: 45%;       /* slightly higher for balance */
+  top: 50%;
   transform: translateY(-50%);
 }
 .hero img.hero-logo {
-  width: 400px;   /* big logo */
+  width: 300px;
   height: auto;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px #fff);
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 20px #fff);
   animation: float 3s ease-in-out infinite;
 }
-.hero p { font-size:22px; color: #fff; }
+.hero p {
+  font-size:18px;
+  line-height:1.4;
+  padding: 0 10px;
+}
 
-/* Store Section: 5 category boxes */
+/* Store Section */
 .store-section {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: auto;
+  padding: 40px 15px;
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+  color: #fff;
 }
 .store-section h2 {
-  font-size: 26px;
+  font-size: 24px;
+  margin-bottom: 25px;
   color: #ffdd00;
-  margin-bottom: 30px;
-  text-align: center;
-  text-shadow: 0 0 10px #ffdd00;
 }
-
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  justify-items: center;
 }
-
 .category-box {
   background-color: #111;
-  padding: 40px 20px;
+  padding: 20px;
   border-radius: 12px;
   text-align: center;
   border: 2px solid #222;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  cursor: pointer;
   text-decoration: none;
   color: #fff;
 }
 .category-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 40px #ffdd00, 0 0 60px #ffdd00;
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px #ffdd00, 0 0 50px #ffdd00;
   border-color: #ffdd00;
   background-color: #222;
 }
 .category-box h3 {
-  font-size: 22px;
+  font-size: 18px;
   color: #ffdd00;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .category-box p {
-  font-size: 16px;
+  font-size: 14px;
   color: #ccc;
 }
 
+/* Bottom 3-boxes section */
+.bottom-boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 40px 15px;
+}
+.bottom-box {
+  flex: 1 1 250px;
+  background-color: #111;
+  padding: 20px 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ffdd0040;
+  text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+}
+.bottom-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px #ffdd00, 0 0 50px #ffdd00;
+  background-color: #222;
+}
+.bottom-box h3 { font-size: 20px; color: #ffdd00; margin-bottom: 10px; }
+.bottom-box p { font-size: 14px; color: #ccc; margin-bottom: 15px; }
+.bottom-box button, .bottom-box a {
+  display: inline-block;
+  background-color: #ffdd00;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+.bottom-box button:hover, .bottom-box a:hover { transform: scale(1.05); }
+
 /* Responsive */
-@media(max-width:768px){
-  .hero img.hero-logo { width: 250px; }
-  .hero p { font-size:16px; }
-  nav a { font-size:13px; padding:6px 10px; }
-  .store-section h2 { font-size:22px; }
-  .category-box h3 { font-size:18px; }
-  .category-box p { font-size:14px; }
+@media(max-width:600px){
+  nav a { font-size:12px; padding:4px 6px; }
+  nav a .icon { font-size:12px; }
+  .hero img.hero-logo { width: 200px; }
+  .hero p { font-size:14px; }
+  .store-section h2 { font-size:20px; }
+  .category-box h3 { font-size:16px; }
+  .category-box p { font-size:12px; }
 }
 </style>
 </head>
@@ -171,7 +209,7 @@ nav a:hover, nav a.active {
   </nav>
 </header>
 
-<!-- Top Banner -->
+<!-- Hero Section -->
 <div class="top-half">
   <div class="bg-image"></div>
   <section class="hero">
@@ -180,9 +218,9 @@ nav a:hover, nav a.active {
   </section>
 </div>
 
-<!-- Store Categories -->
+<!-- Store Section -->
 <div class="store-section">
-  <h2>BDMC Store Categories 🛒</h2>
+  <h2>BDMC Store 🛒</h2>
   <div class="category-grid">
     <a href="ranks.html" class="category-box">
       <h3>Ranks 🏅</h3>
@@ -206,6 +244,32 @@ nav a:hover, nav a.active {
     </a>
   </div>
 </div>
+
+<!-- Bottom Boxes -->
+<div class="bottom-boxes">
+  <div class="bottom-box">
+    <h3>Play Now</h3>
+    <p>Join the server today! Play Lifesteal, Earth SMP, and FFA!</p>
+    <button onclick="copyIP()">Copy Server IP: <span id="server-ip">play.bdmc.com</span></button>
+  </div>
+  <div class="bottom-box">
+    <h3>Links</h3>
+    <p>Check out our server rules and vote rewards!</p>
+    <a href="vote.html">Go to Voting</a>
+  </div>
+  <div class="bottom-box">
+    <h3>Staff</h3>
+    <p>Meet our amazing staff members!</p>
+    <a href="staff.html">View Staff</a>
+  </div>
+</div>
+
+<script>
+function copyIP() {
+  const ip = document.getElementById('server-ip').textContent;
+  navigator.clipboard.writeText(ip).then(()=>{ alert('Server IP copied: '+ip); });
+}
+</script>
 
 </body>
 </html>
