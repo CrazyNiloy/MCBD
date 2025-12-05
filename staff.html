@@ -82,11 +82,11 @@ nav a:hover, nav a.active {
   text-align:center;
   position: relative;
   z-index:1;
-  top: 45%; /* slightly higher */
+  top: 45%;
   transform: translateY(-50%);
 }
 .hero img.hero-logo {
-  width: 400px; /* big logo */
+  width: 400px;
   height: auto;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 15px #fff);
@@ -205,6 +205,12 @@ nav a:hover, nav a.active {
   .staff-box h3 { font-size:18px; }
   .staff-box p { font-size:14px; }
   .staff-box img { width: 100px; height: 100px; }
+
+  /* FIX: Force 2 columns on mobile */
+  .staff-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
 }
 </style>
 </head>
@@ -234,14 +240,13 @@ nav a:hover, nav a.active {
 <div class="staff-section">
   <h2>BDMC Staff 👥</h2>
   <div class="staff-grid">
-    <!-- Owner -->
     <div class="staff-box">
       <img src="assets/owner.png" alt="Owner">
       <h3>MarufhasanNiloy</h3>
       <p>Owner</p>
       <p class="staff-desc">Founder and owner of BDMC. Oversees server management, events, and community engagement. Passionate about Minecraft and building a friendly server environment. 🌟</p>
     </div>
-    <!-- Placeholder Staff -->
+
     <div class="staff-box">
       <img src="assets/placeholder.png" alt="Coming Soon">
       <h3>Coming Soon</h3>
@@ -251,18 +256,20 @@ nav a:hover, nav a.active {
   </div>
 </div>
 
-<!-- Bottom 3-boxes section -->
+<!-- Bottom 3-boxes -->
 <div class="bottom-boxes">
   <div class="bottom-box">
     <h3>Play Now</h3>
     <p>Join the server today! Play Lifesteal, Earth SMP, and FFA!</p>
     <button onclick="copyIP()">Copy Server IP: <span id="server-ip">play.bdmc.com</span></button>
   </div>
+
   <div class="bottom-box">
     <h3>Links</h3>
     <p>Check out our server rules and vote rewards!</p>
     <a href="vote.html">Go to Voting</a>
   </div>
+
   <div class="bottom-box">
     <h3>Store</h3>
     <p>Get ranks, crate keys, and exclusive items!</p>
