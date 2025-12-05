@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BDMC Rules</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  background-color: #000;
+  overflow-x: hidden;
+}
+
+/* Header transparent */
+header {
+  position: fixed;
+  top:0; left:0; width:100%;
+  z-index:1000;
+  background: transparent;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  display:flex;
+  gap:12px;
+}
+nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  padding:10px 14px;
+  border-radius:6px;
+  border:2px solid transparent;
+  font-size:15px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap:6px;
+}
+nav a .icon { font-size:18px; }
+nav a:hover, nav a.active {
+  color:#fff;
+  border:2px solid #fff;
+  box-shadow:0 0 15px #fff, 0 0 25px #fff;
+  transform:scale(1.05);
+}
+
+/* Top banner like Home page */
+.top-half {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+.bg-image {
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: url('assets/bg.png') center/cover no-repeat;
+  z-index: -1;
+}
+.top-half::after {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,20,0.55);
+  z-index: -1;
+}
+
+/* Floating logo animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+.hero {
+  text-align:center;
+  position: relative;
+  z-index:1;
+  top: 40%; /* logo higher */
+  transform: translateY(-50%);
+}
+.hero img.hero-logo {
+  width: 400px; /* bigger like home page */
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px #fff);
+  animation: float 3s ease-in-out infinite;
+}
+.hero p {
+  font-size:22px;
+  color: #fff;
+}
+
+/* Rules Section */
+.rules-container {
+  max-width: 1000px;
+  margin: 50px auto 50px auto;
+  padding: 20px;
+  text-align: left;
+}
+.rule-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.rule-tabs button {
+  padding: 10px 20px;
+  background: #111;
+  border: 2px solid #ffdd00;
+  color: #ffdd00;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.rule-tabs button.active {
+  background: #ffdd00;
+  color: #000;
+}
+.rule-content {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  max-height: 600px;
+  overflow-y: auto;
+  color: #ccc;
+  box-shadow: 0 0 20px #ffdd0040;
+  line-height: 1.6;
+}
+.rule-content h3 { color: #ffdd00; margin-bottom: 15px; }
+.rule-content p, .rule-content li { margin-bottom: 8px; }
+
+/* Bottom 3-box section */
+.bottom-boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px 20px;
+}
+
+.bottom-box {
+  flex: 1 1 300px;
+  background-color: #111;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ffdd0040;
+  text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+}
+.bottom-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px #ffdd00, 0 0 60px #ffdd00;
+  background-color: #222;
+}
+.bottom-box h3 { font-size: 22px; color: #ffdd00; margin-bottom: 15px; }
+.bottom-box p { font-size: 16px; color: #ccc; margin-bottom: 20px; }
+.bottom-box button, .bottom-box a {
+  display: inline-block;
+  background-color: #ffdd00;
+  color: #000;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.bottom-box button:hover, .bottom-box a:hover { transform: scale(1.05); }
+
+/* Responsive */
+@media(max-width:1024px){ .bottom-boxes { flex-direction: column; align-items: center; } }
+@media(max-width:768px){
+  .hero img.hero-logo { width: 250px; }
+  .hero p { font-size:16px; }
+  nav a { font-size:13px; padding:6px 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html"><span class="icon">🏠</span> Home</a>
+    <a href="rules.html" class="active"><span class="icon">📜</span> Rules</a>
+    <a href="vote.html"><span class="icon">🗳️</span> Vote</a>
+    <a href="store.html"><span class="icon">🛒</span> Store</a>
+    <a href="staff.html"><span class="icon">👥</span> Staff</a>
+  </nav>
+</header>
+
+<!-- Top Banner -->
+<div class="top-half">
+  <div class="bg-image"></div>
+  <section class="hero">
+    <img src="assets/logo.png" alt="BDMC Logo" class="hero-logo">
+    <p>Welcome to BDMC – your ultimate Minecraft hub! 🏰</p>
+  </section>
+</div>
+
+<!-- Rules Tabs -->
+<div class="rules-container">
+  <div class="rule-tabs">
+    <button class="active" onclick="showRule('official')">Official Rules</button>
+    <button onclick="showRule('server')">Server Rules</button>
+    <button onclick="showRule('discord')">Discord Rules</button>
+  </div>
+
+  <!-- Rule Contents -->
+  <div class="rule-content" id="official">
+    <h3>BDMC Official Rules</h3>
+    <p><strong>Last updated:</strong> 5 August 2025</p>
+    <p>Welcome to the official rules page for BDMC. Here you will find our network-wide guidelines and Discord server rules. Should you fail to abide by these rules, you may lose the ability to participate in our community. Please keep in mind at all times that members of our Staff team can issue disciplinary actions for offences not listed here, and that you are solely responsible for the security and integrity of your own account. If you wish to report a possible rule violation, please visit our Support server on Discord using the link below.</p>
+    <p>We hope you enjoy a safe and comfortable experience on our server. Thank you!<br>- BDMC Management and Staff</p>
+  </div>
+
+  <div class="rule-content" id="server" style="display:none">
+    <h3>BDMC Minecraft Server Rules</h3>
+    <ul>
+      <li>Spamming</li>
+      <li>Disrespectful behavior</li>
+      <li>Bigotry (slurs, derogatory comments regarding race, gender, disability, etc.)</li>
+      <li>Griefing/Stealing (BOTH ARE ALLOWED ON LIFESTEAL)</li>
+      <li>Staff disrespect</li>
+      <li>Advertising/Self-promotion</li>
+      <li>Use of unfair advantage</li>
+      <li>Client modifications which provide unfair advantages, including but not limited to Easy Place or Aim Assist</li>
+      <li>Bypassing disciplinary actions</li>
+      <li>Fighting/Drama</li>
+      <li>Use of inappropriate usernames or skins</li>
+      <li>Discussing politics/religion</li>
+      <li>Refusal to leave a location</li>
+      <li>Abusing nicknames</li>
+      <li>Building inappropriate structures</li>
+      <li>Selecting inappropriate item names</li>
+      <li>Threatening behavior</li>
+      <li>Discussion or use of duplication exploits</li>
+      <li>Discussion or use of lag machines</li>
+      <li>Sending suspicious links</li>
+      <li>Predatory behavior</li>
+      <li>Encouraging rule-breaking behavior</li>
+      <li>Discussion of sensitive topics</li>
+      <li>Discussing punishments</li>
+      <li>Scamming (THIS IS ALLOWED ON LIFESTEAL)</li>
+      <li>Exploiting the server</li>
+      <li>Trapping and killing other players (TELEPORTATION KILLS ARE ALLOWED ON LIFESTEAL)</li>
+      <li>Impersonation</li>
+      <li>Real-life trades of any kind</li>
+      <li>Bot attacks</li>
+      <li>IP-grabbing</li>
+      <li>Abusing alts</li>
+    </ul>
+  </div>
+
+  <div class="rule-content" id="discord" style="display:none">
+    <h3>BDMC Discord Server Rules</h3>
+    <ul>
+      <li>Speaking in a non-English language</li>
+      <li>Spamming</li>
+      <li>Disrespectful behavior</li>
+      <li>Use of inappropriate names or other profile attributes</li>
+      <li>Advertising/Self-promotion</li>
+      <li>Bypassing chat filters</li>
+      <li>Bigotry (slurs, derogatory comments regarding race, gender, disability, etc.)</li>
+      <li>Staff disrespect</li>
+      <li>Abusing screenshare privileges</li>
+      <li>Trolling behavior</li>
+      <li>Sending suspicious/irrelevant links</li>
+      <li>Discussion of sensitive topics</li>
+      <li>Discussing punishments</li>
+      <li>Abusing support/suggestions systems</li>
+      <li>Impersonation</li>
+      <li>Threatening behavior</li>
+      <li>Discussing politics/religion</li>
+      <li>Fighting/Drama</li>
+      <li>Predatory behavior</li>
+      <li>Exploiting the support system and staff</li>
+      <li>Bot attacks</li>
+      <li>IP-grabbing</li>
+      <li>Using commands in the wrong channel</li>
+      <li>Bypassing disciplinary actions</li>
+      <li>Submitting duplicate tickets</li>
+      <li>Real-life trades of any kind</li>
+      <li>Generally, if it is not acceptable in-game, then it is not acceptable on Discord either.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Bottom 3-boxes section -->
+<div class="bottom-boxes">
+  <div class="bottom-box">
+    <h3>Play Now</h3>
+    <p>Join the server today! Play Lifesteal, Earth SMP, and FFA!</p>
+    <button onclick="copyIP()">Copy Server IP: <span id="server-ip">play.bdmc.com</span></button>
+  </div>
+
+  <div class="bottom-box">
+    <h3>Links</h3>
+    <p>Check out our server rules and vote rewards!</p>
+    <a href="vote.html">Go to Voting</a>
+  </div>
+
+  <div class="bottom-box">
+    <h3>Store</h3>
+    <p>Get ranks, crate keys, and exclusive items!</p>
+    <a href="store.html">Shop Now</a>
+  </div>
+</div>
+
+<script>
+function showRule(tab) {
+  const tabs = ['official','server','discord'];
+  tabs.forEach(t => document.getElementById(t).style.display = 'none');
+  document.getElementById(tab).style.display = 'block';
+  const buttons = document.querySelectorAll('.rule-tabs button');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  document.querySelector(`.rule-tabs button[onclick="showRule('${tab}')"]`).classList.add('active');
+}
+function copyIP() {
+  const ip = document.getElementById('server-ip').textContent;
+  navigator.clipboard.writeText(ip).then(() => { alert('Server IP copied: ' + ip); });
+}
+</script>
+
+</body>
+</html>

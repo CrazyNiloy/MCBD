@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BDMC Webstore</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  background-color: #000; /* black background */
+}
+
+/* Header transparent */
+header {
+  position: fixed;
+  top:0; left:0; width:100%;
+  z-index:1000;
+  background: transparent;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  display:flex;
+  gap:12px;
+}
+nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  padding:10px 14px;
+  border-radius:6px;
+  border:2px solid transparent;
+  font-size:15px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap:6px;
+}
+nav a .icon {
+  font-size:18px;
+  color: #fff;
+}
+nav a:hover, nav a.active {
+  color:#fff;
+  border:2px solid #fff;
+  box-shadow:0 0 15px #fff, 0 0 25px #fff;
+  transform:scale(1.05);
+}
+
+/* Top half: static image background */
+.top-half {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+.bg-image {
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: url('assets/bg.png') center/cover no-repeat;
+  z-index: -1;
+}
+.top-half::after {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,20,0.55);
+  z-index: -1;
+}
+
+/* Floating logo animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+.hero {
+  text-align:center;
+  position: relative;
+  z-index:1;
+  top: 40%; /* moved up for bigger logo */
+  transform: translateY(-50%);
+}
+.hero img.hero-logo {
+  width: 400px; /* bigger logo */
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px #fff);
+  animation: float 3s ease-in-out infinite;
+}
+.hero p {
+  font-size:22px;
+  line-height:1.5;
+}
+
+/* Description Section */
+.description-section {
+  background-color: transparent;
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+}
+.description-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ffdd00;
+}
+.description-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ccc;
+}
+.description-section span {
+  font-weight: bold;
+  color: #ffdd00;
+}
+
+/* Bottom 3-box section with hover animations */
+.bottom-boxes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px 20px;
+}
+
+.bottom-box {
+  flex: 1 1 300px; /* equal size */
+  background-color: #111;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ffdd0040;
+  text-align: center;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+.bottom-box:hover {
+  transform: translateY(-10px); /* slide up */
+  box-shadow: 0 0 40px #ffdd00, 0 0 60px #ffdd00; /* glowing edge */
+  background-color: #222; /* subtle dark glow on background */
+}
+
+.bottom-box h3 {
+  font-size: 22px;
+  color: #ffdd00;
+  margin-bottom: 15px;
+}
+
+.bottom-box p {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.bottom-box button,
+.bottom-box a {
+  display: inline-block;
+  background-color: #ffdd00;
+  color: #000;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.bottom-box button:hover,
+.bottom-box a:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media(max-width:1024px){
+  .bottom-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media(max-width:768px){
+  .hero img.hero-logo { width: 280px; } /* smaller for mobile */
+  .hero p { font-size:16px; }
+  nav a { font-size:13px; padding:6px 10px; }
+  .description-section h2 { font-size:24px; }
+  .description-section p { font-size:16px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="active"><span class="icon">🏠</span> Home</a>
+    <a href="rules.html"><span class="icon">📜</span> Rules</a>
+    <a href="vote.html"><span class="icon">🗳️</span> Vote</a>
+    <a href="store.html"><span class="icon">🛒</span> Store</a>
+    <a href="staff.html"><span class="icon">👥</span> Staff</a>
+  </nav>
+</header>
+
+<!-- Top half: static image + hero -->
+<div class="top-half">
+  <div class="bg-image"></div>
+  <section class="hero">
+    <img src="assets/logo.png" alt="BDMC Logo" class="hero-logo">
+    <p>Welcome to BDMC – your ultimate Minecraft hub! 🏰</p>
+  </section>
+</div>
+
+<!-- Description Section -->
+<div class="description-section">
+  <h2>BDMC Servers 🌟</h2>
+  <p>
+    Dive into the world of <span>Lobby</span> 🎮 – meet new players and join your friends.  
+    Experience the thrill of <span>Lifesteal</span> 🩸 – battle, survive, and claim victory.  
+    Challenge yourself in <span>Bedwars</span> 🛏️ – strategize and destroy enemy beds.  
+    Enjoy classic <span>Survival</span> 🌲 – build, explore, and thrive in our world.  
+    BDMC offers an immersive Minecraft experience with exclusive events, custom content, and a friendly community! ✨
+  </p>
+</div>
+
+<!-- Bottom 3-boxes section -->
+<div class="bottom-boxes">
+  <!-- Play Now Box -->
+  <div class="bottom-box">
+    <h3>Play Now</h3>
+    <p>Join the server today! Play Lifesteal, Earth SMP, and FFA!</p>
+    <button onclick="copyIP()">Copy Server IP: <span id="server-ip">play.bdmc.com</span></button>
+  </div>
+
+  <!-- Links Box -->
+  <div class="bottom-box">
+    <h3>Links</h3>
+    <p>Check out our server rules and vote rewards!</p>
+    <a href="vote.html">Go to Voting</a>
+  </div>
+
+  <!-- Store Box -->
+  <div class="bottom-box">
+    <h3>Store</h3>
+    <p>Get ranks, crate keys, and exclusive items!</p>
+    <a href="store.html">Shop Now</a>
+  </div>
+</div>
+
+<script>
+function copyIP() {
+  const ip = document.getElementById('server-ip').textContent;
+  navigator.clipboard.writeText(ip).then(() => {
+    alert('Server IP copied: ' + ip);
+  });
+}
+</script>
+
+</body>
+</html>

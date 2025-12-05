@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BDMC Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top:0; left:0; width:100%;
+  z-index:1000;
+  background: transparent;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  display:flex;
+  gap:12px;
+}
+nav a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  padding:10px 14px;
+  border-radius:6px;
+  border:2px solid transparent;
+  font-size:15px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap:6px;
+}
+nav a .icon { font-size:18px; }
+nav a:hover, nav a.active {
+  color:#fff;
+  border:2px solid #fff;
+  box-shadow:0 0 15px #fff, 0 0 25px #fff;
+  transform:scale(1.05);
+}
+
+/* Top Banner */
+.top-half {
+  position: relative;
+  width: 100%;
+  height: 65vh; /* slightly taller for bigger logo */
+  overflow: hidden;
+}
+.bg-image {
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: url('assets/bg.png') center/cover no-repeat;
+  z-index: -1;
+}
+.top-half::after {
+  content: '';
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,20,0.55);
+  z-index: -1;
+}
+
+/* Floating logo animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+.hero {
+  text-align:center;
+  position: relative;
+  z-index:1;
+  top: 45%;       /* slightly higher for balance */
+  transform: translateY(-50%);
+}
+.hero img.hero-logo {
+  width: 400px;   /* big logo */
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px #fff);
+  animation: float 3s ease-in-out infinite;
+}
+.hero p { font-size:22px; color: #fff; }
+
+/* Store Section: 5 category boxes */
+.store-section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.store-section h2 {
+  font-size: 26px;
+  color: #ffdd00;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 0 0 10px #ffdd00;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.category-box {
+  background-color: #111;
+  padding: 40px 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #222;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+.category-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px #ffdd00, 0 0 60px #ffdd00;
+  border-color: #ffdd00;
+  background-color: #222;
+}
+.category-box h3 {
+  font-size: 22px;
+  color: #ffdd00;
+  margin-bottom: 10px;
+}
+.category-box p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero img.hero-logo { width: 250px; }
+  .hero p { font-size:16px; }
+  nav a { font-size:13px; padding:6px 10px; }
+  .store-section h2 { font-size:22px; }
+  .category-box h3 { font-size:18px; }
+  .category-box p { font-size:14px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="index.html"><span class="icon">🏠</span> Home</a>
+    <a href="rules.html"><span class="icon">📜</span> Rules</a>
+    <a href="vote.html"><span class="icon">🗳️</span> Vote</a>
+    <a href="store.html" class="active"><span class="icon">🛒</span> Store</a>
+    <a href="staff.html"><span class="icon">👥</span> Staff</a>
+  </nav>
+</header>
+
+<!-- Top Banner -->
+<div class="top-half">
+  <div class="bg-image"></div>
+  <section class="hero">
+    <img src="assets/logo.png" alt="BDMC Logo" class="hero-logo">
+    <p>Shop the best items for BDMC! ✨</p>
+  </section>
+</div>
+
+<!-- Store Categories -->
+<div class="store-section">
+  <h2>BDMC Store Categories 🛒</h2>
+  <div class="category-grid">
+    <a href="ranks.html" class="category-box">
+      <h3>Ranks 🏅</h3>
+      <p>Get exclusive server ranks and perks.</p>
+    </a>
+    <a href="coins.html" class="category-box">
+      <h3>Coins 💰</h3>
+      <p>Purchase coins to buy in-game items easily.</p>
+    </a>
+    <a href="keys.html" class="category-box">
+      <h3>Keys 🔑</h3>
+      <p>Unlock crates and get rare rewards.</p>
+    </a>
+    <a href="bundles.html" class="category-box">
+      <h3>Bundles 📦</h3>
+      <p>Special packages with multiple items.</p>
+    </a>
+    <a href="money.html" class="category-box">
+      <h3>Money 💵</h3>
+      <p>Recharge your account to buy items anytime.</p>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
