@@ -22,29 +22,31 @@ header {
   top:0; left:0; width:100%;
   z-index:1000;
   background: transparent;
-  padding: 12px 30px;
+  padding: 8px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 nav {
   display:flex;
-  gap:12px;
+  gap:8px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 nav a {
   color:#fff;
   text-decoration:none;
   font-weight:bold;
-  padding:10px 14px;
+  padding:6px 10px;
   border-radius:6px;
   border:2px solid transparent;
-  font-size:15px;
+  font-size:14px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap:6px;
+  gap:4px;
 }
-nav a .icon { font-size:18px; }
+nav a .icon { font-size:16px; }
 nav a:hover, nav a.active {
   color:#fff;
   border:2px solid #fff;
@@ -56,7 +58,7 @@ nav a:hover, nav a.active {
 .top-half {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 60vh;
   overflow: hidden;
 }
 .bg-image {
@@ -73,7 +75,7 @@ nav a:hover, nav a.active {
   top:0; left:0;
   width:100%;
   height:100%;
-  background: rgba(0,0,20,0.55);
+  background: rgba(0,0,0,0.4);
   z-index: -1;
 }
 
@@ -87,37 +89,38 @@ nav a:hover, nav a.active {
   text-align:center;
   position: relative;
   z-index:1;
-  top: 40%; /* logo higher */
+  top: 50%;
   transform: translateY(-50%);
 }
 .hero img.hero-logo {
-  width: 400px; /* bigger like home page */
+  width: 300px;
   height: auto;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 25px #fff);
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 20px #fff);
   animation: float 3s ease-in-out infinite;
 }
 .hero p {
-  font-size:22px;
+  font-size:18px;
   color: #fff;
+  padding:0 10px;
 }
 
 /* Rules Section */
 .rules-container {
-  max-width: 1000px;
-  margin: 50px auto 50px auto;
-  padding: 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 15px;
   text-align: left;
 }
 .rule-tabs {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: 10px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
 }
 .rule-tabs button {
-  padding: 10px 20px;
+  padding: 8px 15px;
   background: #111;
   border: 2px solid #ffdd00;
   color: #ffdd00;
@@ -125,6 +128,7 @@ nav a:hover, nav a.active {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 14px;
 }
 .rule-tabs button.active {
   background: #ffdd00;
@@ -132,60 +136,69 @@ nav a:hover, nav a.active {
 }
 .rule-content {
   background: #111;
-  padding: 25px;
+  padding: 20px;
   border-radius: 12px;
-  max-height: 600px;
+  max-height: 500px;
   overflow-y: auto;
   color: #ccc;
-  box-shadow: 0 0 20px #ffdd0040;
-  line-height: 1.6;
+  box-shadow: 0 0 15px #ffdd0040;
+  line-height: 1.5;
 }
-.rule-content h3 { color: #ffdd00; margin-bottom: 15px; }
-.rule-content p, .rule-content li { margin-bottom: 8px; }
+.rule-content h3 { color: #ffdd00; margin-bottom: 10px; }
+.rule-content p, .rule-content li { margin-bottom: 6px; }
 
 /* Bottom 3-box section */
 .bottom-boxes {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 50px 20px;
+  gap: 15px;
+  padding: 40px 15px;
 }
-
 .bottom-box {
-  flex: 1 1 300px;
+  flex: 1 1 250px;
   background-color: #111;
-  padding: 30px 20px;
+  padding: 20px 15px;
   border-radius: 12px;
-  box-shadow: 0 0 20px #ffdd0040;
+  box-shadow: 0 0 15px #ffdd0040;
   text-align: center;
   transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
 }
 .bottom-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 40px #ffdd00, 0 0 60px #ffdd00;
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px #ffdd00, 0 0 50px #ffdd00;
   background-color: #222;
 }
-.bottom-box h3 { font-size: 22px; color: #ffdd00; margin-bottom: 15px; }
-.bottom-box p { font-size: 16px; color: #ccc; margin-bottom: 20px; }
+.bottom-box h3 { font-size: 20px; color: #ffdd00; margin-bottom: 10px; }
+.bottom-box p { font-size: 14px; color: #ccc; margin-bottom: 15px; }
 .bottom-box button, .bottom-box a {
   display: inline-block;
   background-color: #ffdd00;
   color: #000;
-  padding: 12px 25px;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 6px;
   font-weight: bold;
   text-decoration: none;
+  font-size: 14px;
   transition: transform 0.3s ease;
 }
 .bottom-box button:hover, .bottom-box a:hover { transform: scale(1.05); }
 
-/* Responsive */
-@media(max-width:1024px){ .bottom-boxes { flex-direction: column; align-items: center; } }
-@media(max-width:768px){
-  .hero img.hero-logo { width: 250px; }
-  .hero p { font-size:16px; }
-  nav a { font-size:13px; padding:6px 10px; }
+/* Responsive adjustments */
+@media(max-width:600px){
+  nav a {
+    font-size:12px;
+    padding:4px 6px;
+  }
+  nav a .icon { font-size:12px; }
+  .hero img.hero-logo { width: 200px; }
+  .hero p { font-size:14px; }
+  .rule-tabs button { font-size:12px; padding:6px 10px; }
+  .rule-content { font-size:14px; max-height: 400px; }
+  .bottom-box h3 { font-size:16px; }
+  .bottom-box p { font-size:12px; }
+  .bottom-box button, .bottom-box a { font-size:12px; padding:8px 15px; }
+  .top-half { height: 50vh; }
 }
 </style>
 </head>
@@ -218,7 +231,6 @@ nav a:hover, nav a.active {
     <button onclick="showRule('discord')">Discord Rules</button>
   </div>
 
-  <!-- Rule Contents -->
   <div class="rule-content" id="official">
     <h3>BDMC Official Rules</h3>
     <p><strong>Last updated:</strong> 5 August 2025</p>
@@ -231,69 +243,30 @@ nav a:hover, nav a.active {
     <ul>
       <li>Spamming</li>
       <li>Disrespectful behavior</li>
-      <li>Bigotry (slurs, derogatory comments regarding race, gender, disability, etc.)</li>
-      <li>Griefing/Stealing (BOTH ARE ALLOWED ON LIFESTEAL)</li>
+      <li>Bigotry (slurs, derogatory comments)</li>
+      <li>Griefing/Stealing (BOTH ALLOWED ON LIFESTEAL)</li>
       <li>Staff disrespect</li>
       <li>Advertising/Self-promotion</li>
       <li>Use of unfair advantage</li>
-      <li>Client modifications which provide unfair advantages, including but not limited to Easy Place or Aim Assist</li>
+      <li>Client mods providing unfair advantages</li>
       <li>Bypassing disciplinary actions</li>
       <li>Fighting/Drama</li>
-      <li>Use of inappropriate usernames or skins</li>
+      <li>Inappropriate usernames or skins</li>
       <li>Discussing politics/religion</li>
-      <li>Refusal to leave a location</li>
-      <li>Abusing nicknames</li>
-      <li>Building inappropriate structures</li>
-      <li>Selecting inappropriate item names</li>
-      <li>Threatening behavior</li>
-      <li>Discussion or use of duplication exploits</li>
-      <li>Discussion or use of lag machines</li>
-      <li>Sending suspicious links</li>
-      <li>Predatory behavior</li>
-      <li>Encouraging rule-breaking behavior</li>
-      <li>Discussion of sensitive topics</li>
-      <li>Discussing punishments</li>
-      <li>Scamming (THIS IS ALLOWED ON LIFESTEAL)</li>
-      <li>Exploiting the server</li>
-      <li>Trapping and killing other players (TELEPORTATION KILLS ARE ALLOWED ON LIFESTEAL)</li>
-      <li>Impersonation</li>
-      <li>Real-life trades of any kind</li>
-      <li>Bot attacks</li>
-      <li>IP-grabbing</li>
-      <li>Abusing alts</li>
+      <li>Other server rule violations...</li>
     </ul>
   </div>
 
   <div class="rule-content" id="discord" style="display:none">
     <h3>BDMC Discord Server Rules</h3>
     <ul>
-      <li>Speaking in a non-English language</li>
+      <li>Non-English language use</li>
       <li>Spamming</li>
       <li>Disrespectful behavior</li>
-      <li>Use of inappropriate names or other profile attributes</li>
+      <li>Inappropriate names/profile attributes</li>
       <li>Advertising/Self-promotion</li>
       <li>Bypassing chat filters</li>
-      <li>Bigotry (slurs, derogatory comments regarding race, gender, disability, etc.)</li>
-      <li>Staff disrespect</li>
-      <li>Abusing screenshare privileges</li>
-      <li>Trolling behavior</li>
-      <li>Sending suspicious/irrelevant links</li>
-      <li>Discussion of sensitive topics</li>
-      <li>Discussing punishments</li>
-      <li>Abusing support/suggestions systems</li>
-      <li>Impersonation</li>
-      <li>Threatening behavior</li>
-      <li>Discussing politics/religion</li>
-      <li>Fighting/Drama</li>
-      <li>Predatory behavior</li>
-      <li>Exploiting the support system and staff</li>
-      <li>Bot attacks</li>
-      <li>IP-grabbing</li>
-      <li>Using commands in the wrong channel</li>
-      <li>Bypassing disciplinary actions</li>
-      <li>Submitting duplicate tickets</li>
-      <li>Real-life trades of any kind</li>
-      <li>Generally, if it is not acceptable in-game, then it is not acceptable on Discord either.</li>
+      <li>Other Discord rule violations...</li>
     </ul>
   </div>
 </div>
